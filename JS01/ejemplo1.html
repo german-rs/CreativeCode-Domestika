@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas tutorial</title>
+    <script>
+        function draw(){
+            var canvas = document.getElementById("tutorial");
+            if(canvas.getContext){
+                var ctx = canvas.getContext("2d");
+                            
+                    //Red, green, blue
+                // ctx.fillStyle = "rgb(200, 0, 0)";
+                // ctx.fillRect(10, 10, 55, 50);
+                
+                //     //Red, green, blue, alpha
+                // ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+                // ctx.fillRect(50, 50, 55, 50);   
+                
+                
+                     //X horizontal - Y Vertical
+                ctx.fillRect(25, 25, 100, 100);
+                ctx.clearRect(45, 45, 60, 60);
+                ctx.strokeRect(50, 50, 50, 50);
+                
+                //https://developer.mozilla.org/es/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
+                
+
+            }
+        }
+    </script>
+    <style type="text/css">
+        canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body onload="draw();">
+    <canvas id="tutorial" width="500" height="700"></canvas>
+</body>
+</html>
