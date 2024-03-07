@@ -18,6 +18,10 @@ const sketch = ({ context, width, height }) => {
 
   }
 
+  /**
+   * https://www.youtube.com/watch?v=vXtYgdj4pVk
+   */
+
   return ({ context, width, height }) => {
     context.fillStyle = 'white';
     context.fillRect(0, 0, width, height);
@@ -36,6 +40,7 @@ const sketch = ({ context, width, height }) => {
         context.lineWidth = math.mapRange(dist, 0, 200, 12, 1);
 
         context.beginPath();
+        context.strokeStyle = '#000000';
         context.moveTo(agent.pos.x, agent.pos.y);
         context.lineTo(other.pos.x, other.pos.y);
         context.stroke();
@@ -45,7 +50,9 @@ const sketch = ({ context, width, height }) => {
     agents.forEach(agent =>{
       agent.update();
       agent.draw(context);
-      agent.bounce(width, height);
+      //agent.bounce(width, height);
+
+      agent.wrap(width, height);
     });
 
       
@@ -75,6 +82,17 @@ class Agent{
     this.radius = random.range(4, 12);
   }
 
+  wrap(width, height){
+    if (this.pos.x >= width){
+      this.pos.x = 0;
+    }else if(this.pos.x <= 0){
+      this.pos.x = width;
+    } 
+      
+    if(this.pos.y <= 0 || this.pos.y >= height) 
+      this.vel.y *= -1; 
+  }
+
   bounce(width, height){
     if(this.pos.x <= 0 || this.pos.x >= width) 
       this.vel.x *= -1;
@@ -94,6 +112,7 @@ class Agent{
     context.translate(this.pos.x, this.pos.y);
     context.lineWidth = 4;
     context.beginPath();
+    context.strokeStyle = '#000000';
     context.arc(0, 0, this.radius, 0, Math.PI * 2);
     context.stroke();
     context.restore();
