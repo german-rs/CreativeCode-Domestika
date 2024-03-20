@@ -18,9 +18,7 @@ const sketch = ({ context, width, height }) => {
 
   }
 
-  /**
-   * https://www.youtube.com/watch?v=vXtYgdj4pVk
-   */
+
 
   return ({ context, width, height }) => {
     context.fillStyle = 'white';
@@ -107,7 +105,6 @@ class Agent{
   }
   
   draw(context){
-    
     context.save();
     context.translate(this.pos.x, this.pos.y);
     context.lineWidth = 4;
@@ -118,3 +115,12 @@ class Agent{
     context.restore();
   }
 }
+
+
+  /**
+   * Final result in youtube:
+   * 
+   * https://www.youtube.com/watch?v=vXtYgdj4pVk
+   */
+
+
