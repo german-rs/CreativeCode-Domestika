@@ -3,7 +3,7 @@ const random = require('canvas-sketch-util/random');
 const math = require('canvas-sketch-util/math');
 
 const settings = {
-  dimensions: [ 1080, 1080 ],
+  dimensions: [ 1500, 900 ],
   animate: true
 };
 
@@ -21,7 +21,7 @@ const sketch = ({ context, width, height }) => {
 
 
   return ({ context, width, height }) => {
-    context.fillStyle = 'white';
+    context.fillStyle = 'black';
     context.fillRect(0, 0, width, height);
 
 
@@ -38,7 +38,7 @@ const sketch = ({ context, width, height }) => {
         context.lineWidth = math.mapRange(dist, 0, 200, 12, 1);
 
         context.beginPath();
-        context.strokeStyle = '#000000';
+        context.strokeStyle = '#ffffff';
         context.moveTo(agent.pos.x, agent.pos.y);
         context.lineTo(other.pos.x, other.pos.y);
         context.stroke();
@@ -109,7 +109,7 @@ class Agent{
     context.translate(this.pos.x, this.pos.y);
     context.lineWidth = 4;
     context.beginPath();
-    context.strokeStyle = '#000000';
+    context.strokeStyle = '#ffffff';
     context.arc(0, 0, this.radius, 0, Math.PI * 2);
     context.stroke();
     context.restore();
